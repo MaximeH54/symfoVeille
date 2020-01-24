@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class EditorController extends AbstractController
 {
     /**
-     * @Route("/editor", name="editor")
+     * @Route("/editor", name="editor", methods={"POST"})
      */
     public function index()
     {
@@ -35,7 +35,7 @@ class EditorController extends AbstractController
 			 $editor = $this->getDoctrine()->getRepository(Editor::class)->find($id);
 
 			 if (!$editor) {
-				 throw new NotFoundHttpException('Sorry not existing!');				 
+				 throw new NotFoundHttpException('Sorry not existing!');
 			 }
 
 			 $games = [];
